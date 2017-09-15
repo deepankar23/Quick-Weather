@@ -11,4 +11,6 @@ import Foundation
 
 let kWeatherDetailSegueIdentifier = "WeatherDetailSegue"
 
-let WeatherInfoCellIdentifier = "WeatherInfoCell"
+let kWeatherInfoCellIdentifier = "WeatherInfoCell"
+
+let kAlertMessage = "Please enter a city name to proceed"

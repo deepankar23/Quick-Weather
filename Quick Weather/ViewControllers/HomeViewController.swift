@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         }
 
         if text.isEmpty {
-            let alertController =  UIAlertController.init(title: "Oops", message: "Please enter a city name", preferredStyle: .alert)
+            let alertController =  UIAlertController.init(title: "Oops", message: kAlertMessage, preferredStyle: .alert)
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
                 alertController.dismiss(animated: true, completion: nil)

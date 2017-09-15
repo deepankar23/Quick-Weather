@@ -58,7 +58,7 @@ class WeatherDetailViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherInfoCellIdentifier, for: indexPath) as! WeatherInfoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: kWeatherInfoCellIdentifier, for: indexPath) as! WeatherInfoCell
         
         cell.dayNameLabel.text = forecastArray[indexPath.row].day
         cell.dayDescriptionLabel.text = forecastArray[indexPath.row].dayDescription
