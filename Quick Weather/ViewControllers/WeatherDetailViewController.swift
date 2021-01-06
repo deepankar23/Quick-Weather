@@ -34,20 +34,28 @@ class WeatherDetailViewController: UIViewController, UITableViewDataSource, UITa
     
 
     func getWeatherReport(){
-    
+
         HttpConnection.sharedInstance.makeHTTPRequestWith(cityName: cityName) { (error, response) in
-            
-            print("\n *** response *** \n \(String(describing: response?["query"]?["results"])) \n ")
-            
-            if let responseDictionary = response?["query"]?["results"] as? Dictionary<String, Dictionary<String, AnyObject>>{
-                
+
+            if let responseDictionary = response?["forecast"] as? Dictionary<String, AnyObject> {
+
                 var forecast = Forecast()
                 forecast.setWeatherReportWith(response: responseDictionary)
                 
                 self.forecastArray = forecast.forecastArray
                 self.weatherReportTableView.reloadData()
+            } else if let errorDict = response?["error"] as? [String:Any] {
+
+                let errorMessage = errorDict["message"] as? String ?? ""
+                let alertController =  UIAlertController.init(title: "Oops", message: errorMessage, preferredStyle: .alert)
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                    alertController.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
             }
-        
+
         }
     }
     

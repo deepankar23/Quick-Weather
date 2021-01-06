@@ -24,9 +24,17 @@ class HttpConnection: NSObject {
     
     //MARK:- Network Calls
     func makeHTTPRequestWith(cityName city: String , completionBlock completionHandler: @escaping (_ error: Error?, _ response: Dictionary<String,AnyObject>?)->()) {
-        
-        let urlString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(city)%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
-        
+
+        // *** OLD Yahoo Weather API- DECOMISSIONED ***
+        //        let urlString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22\(city)%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+
+        //WeatherAPI: https://www.weatherapi.com/my/
+        //APIKEY: 93e895ad3b8846f8b9e33843210501
+
+        //TODO: support cities with spaces in the names...
+        let apiKey = "93e895ad3b8846f8b9e33843210501"
+        let urlString = "https://api.weatherapi.com/v1/forecast.json?key=\(apiKey)&q=\(city)&days=3"
+
         let url = URL.init(string: urlString)
         
         urlSession.dataTask(with: url!) { (data, responseHeaders, error) in
@@ -40,7 +48,10 @@ class HttpConnection: NSObject {
             if let data = data{
                 do{
                     let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String,AnyObject>
-                    
+
+                    print(" ==================== \n")
+                    print(" jsonResponse --> \(String(describing: jsonResponse))")
+                    print(" \n ====================")
                     DispatchQueue.main.async(execute: { 
                         completionHandler(nil, jsonResponse)
                     })
@@ -56,7 +67,7 @@ class HttpConnection: NSObject {
             else{
                 completionHandler(nil, nil)
             }
-            }.resume()
+        }.resume()
     }
     
     

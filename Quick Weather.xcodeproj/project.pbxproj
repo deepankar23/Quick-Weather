@@ -16,7 +16,6 @@
 		704977B51F6A4CEE002B1F60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 704977B21F6A4CEE002B1F60 /* Main.storyboard */; };
 		704977B81F6A4DA1002B1F60 /* HttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704977B71F6A4DA1002B1F60 /* HttpConnection.swift */; };
 		704977BB1F6A575C002B1F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704977B91F6A575C002B1F60 /* Assets.xcassets */; };
-		704977BC1F6A575C002B1F60 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 704977BA1F6A575C002B1F60 /* Info.plist */; };
 		704977BF1F6A5C69002B1F60 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704977BE1F6A5C69002B1F60 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +177,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -196,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				704977BC1F6A575C002B1F60 /* Info.plist in Resources */,
 				704977B41F6A4CEE002B1F60 /* LaunchScreen.storyboard in Resources */,
 				704977BB1F6A575C002B1F60 /* Assets.xcassets in Resources */,
 				704977B51F6A4CEE002B1F60 /* Main.storyboard in Resources */,
@@ -346,7 +345,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DS.Quick-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -359,7 +358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DS.Quick-Weather";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
